@@ -1,0 +1,31 @@
+body {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* background-image: url('https://preview.redd.it/cxeimwflyo881.png?width=800&format=png&auto=webp&s=2160be26be2b962a1b9048c2e6236bbfe643c71c');
+  background-repeat: no-repeat;
+  background-size: cover; */
+}
+.hint {
+  display: none;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+  gap: 2rem;
+}
+
+.letter {
+  padding: 2rem;
+  border: 1px solid white;
+}
+
+#img {
+  height: 10rem;
+}
