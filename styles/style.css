@@ -48,6 +48,42 @@ p.hint {
   width: 10rem;
 }
 
+div.result {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+div.lives {
+color: red;
+}
+
+div.win {
+  color: greenyellow;
+}
+
+div.lose {
+  color: red;
+}
+
+button.playAgain {
+  padding: 0.5rem;
+  border: 1px solid white;
+  border-radius: 10%;
+  background-color: transparent;
+  color: white;
+  font-size: 1.4rem;
+  cursor: url(../images/cursor.png), auto;
+}
+
+button.playAgain:hover {
+  background-color: greenyellow;
+  color: black;
+  transform: scale(1.2);
+}
+
 #alphabet {
   display: flex;
   flex-wrap: wrap;

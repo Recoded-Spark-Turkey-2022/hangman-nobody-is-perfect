@@ -82,9 +82,18 @@ const loadData = (arr) => {
             wordContainer.innerText.slice(0, i) +
             button.innerText +
             wordContainer.innerText.slice(i + 1);
+
+          //if the word is guessed
+          if (wordContainer.innerText === word) {
+            let win = document.querySelector(".win");
+            win.style.display = "block";
+            let winText = document.querySelector(".winText");
+            winText.innerText = `You won! The word was ${word}`;
+          }
         }
       }
 
+      //if the letter is not in the word
       let j = wordContainer.innerText.indexOf(button.innerText);
       if (j === -1) {
         lives -= 1;
@@ -100,28 +109,53 @@ const loadData = (arr) => {
         } else if (lives === 0) {
           img.setAttribute("src", "../images/5.png");
         }
+
+        let livesDOM = document.querySelector(".lives");
+        livesDOM.innerText = `Lives: ${lives}`;
+        if (lives === 0) {
+          let lose = document.querySelector(".lose");
+          lose.style.display = "block";
+          let loseText = document.querySelector(".loseText");
+          loseText.innerText = `You lost! The word was ${word}`;
+
+          // disable buttons if the lives are 0 
+          alphabetButtons.forEach((button) => {
+            button.disabled = true;
+          });
+        }
       }
     });
+
+    //if the letter is already clicked
+    button.addEventListener("click", () => {
+      button.disabled = true;
+    });
+
+    // play again button
+    let playAgainButton = document.querySelector(".playAgain");
+    playAgainButton.addEventListener("click", () => {
+      location.reload();
+    });
+
   });
 };
 
 gettingDatas();
 
-
 // animation
 const spellAnimation = bodymovin.loadAnimation({
-  container: document.getElementById('potter-animation'),
-  renderer: 'svg',
+  container: document.getElementById("potter-animation"),
+  renderer: "svg",
   loop: false,
   autoplay: false,
-  path: 'https://raw.githubusercontent.com/abrahamrkj/facebook-spell/master/data.json'
-})
+  path: "https://raw.githubusercontent.com/abrahamrkj/facebook-spell/master/data.json",
+});
 
-$(".spell-tags li").click(function() { 
+$(".spell-tags li").click(function () {
   spellAnimation.stop();
   spellAnimation.play();
 });
 
-$(document).ready(function(){
+$(document).ready(function () {
   spellAnimation.play();
-})
+});
