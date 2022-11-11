@@ -136,7 +136,6 @@ const loadData = (arr) => {
     playAgainButton.addEventListener("click", () => {
       location.reload();
     });
-
   });
 };
 
